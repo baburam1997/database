@@ -1,0 +1,89 @@
+Entities:
+    Student
+        Student_ID (Primary Key)
+        Name
+        Email
+        Contact_Number
+        Address
+
+    Course
+        Course_ID (Primary Key)
+        Course_Name
+        Course_Description
+        Credits
+
+    Exam
+        Exam_ID (Primary Key)
+        Exam_Date
+        Total_Marks
+        Passing_Marks
+
+    Subject
+        Subject_ID (Primary Key)
+        Subject_Name
+        Subject_Code
+        Credits
+
+    Result
+        Result_ID (Primary Key)
+        Marks_Obtained
+        Grade
+        Result_Status (Pass/Fail)
+
+    Exam_Center
+        Center_ID (Primary Key)
+        Center_Name
+        Location
+        Capacity
+
+    Faculty
+        Faculty_ID (Primary Key)
+        Name
+        Department
+        Contact_Number
+        Email
+
+Relationships:
+    Student - Course
+        A student can enroll in multiple courses.
+        A course can have multiple students enrolled.
+        Relationship: Enrolls_in
+
+    Course - Subject
+        A course can have multiple subjects.
+        A subject can be part of multiple courses.
+        Relationship: Has
+
+    Course - Exam
+        A course can have multiple exams.
+        An exam is associated with one course.
+        Relationship: Conducts
+
+    Student - Exam
+        A student can appear for multiple exams.
+        An exam can be taken by multiple students.
+        Relationship: Appears_in
+
+    Exam - Exam_Center
+        An exam is conducted at one exam center.
+        An exam center can host multiple exams.
+        Relationship: Conducted_at
+
+    Exam - Result
+        An exam has one result.
+        A result is linked to one exam.
+        Relationship: Generates
+
+    Faculty - Subject
+        A faculty member can teach multiple subjects.
+        A subject can be taught by multiple faculty members.
+        Relationship: Teaches
+
+ER Diagram Explanation:
+    Student: Central entity representing students who enroll in courses and take exams.
+    Course: Represents different courses available for enrollment.
+    Subject: Represents individual subjects that are part of a course.
+    Exam: Represents exams conducted for different courses.
+    Result: Represents the results generated after an exam.
+    Exam_Center: Represents the physical locations where exams are conducted.
+    Faculty: Represents the instructors or professors who teach subjects.
