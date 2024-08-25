@@ -11,6 +11,17 @@
 
     -- Projection (π): Selects specific columns from the table.
         -- Syntax:
+            -- σ Condition(π {Attribute1, Attribute2, Attribute3,..} (Relation))
+            -- π {Attribute1, Attribute2, Attribute3,..} (σ Condition (Relation))
+        -- Example:
+            -- σ {age > 21} (π {fname, age} (students))
+            -- π {fname, age} (σ {age > 21} (students))
+        -- Query:
+            SELECT * FROM (SELECT fname, age FROM raw_db.relationalalgebra.students) WHERE age > 21;
+            SELECT fname, age FROM(SELECT * FROM raw_db.relationalalgebra.students WHERE age > 21);
+
+    -- Combinining Selection (σ) and Projection (π)
+        -- Syntax:
             -- π {Attribute1, Attribute2, Attribute3,..} (Relation)
         -- Example:
             -- π {fname, age} (students)
